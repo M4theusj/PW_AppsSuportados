@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormBuilder,  FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 export class LoginComponent {
   formulario: FormGroup;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private router: Router){
+
     this.formulario = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength]],
       email: ['', [Validators.email, Validators.required]],
@@ -19,5 +21,6 @@ export class LoginComponent {
   }
   onSubmit(){
     alert("formulario enviado com sucesso!")
+    this.router.navigate(['/home']);
   }
 }
