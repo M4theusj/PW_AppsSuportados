@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <nav class="glass-effect">
+    <button (click)="home()">home</button>
+    <button (click)="sair()">sair</button>
+  </nav>
+  <header>
+    <div id="titulo">
+      <p>apps</p>
+    </div>
+    <div id="mainContainer">
+      <div id="leftContainer">
+         <div class="content">
+          <p>Nome</p>
+          <input type="text">
+          <p>Descrição</p>
+          <input type="text">
+          <button class="btn" style="margin-left: 30px;" id="createBtn">create</button>
+         </div> 
+         <div class="content">
+          <p>Id</p>
+          <input type="number">
+          <div id="btnContainer">
+            <button class="btn" id="readBtn">read</button>
+            <button class="btn" id="deleteBtn">delete</button>
+          </div>
+         </div>
+      </div>
+      <div id="rightContainer">
+          <div class="appElement">
+            <p>Uber - 1</p>
+            <p>Transporte, Corrida</p>
+          </div>
+      </div>
+    </div>
+  </header> 
+</body>
+</html>
