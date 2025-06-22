@@ -124,6 +124,10 @@ header{
     cursor: pointer;
 }
 
+.btn:active{
+    border-bottom: 2px solid;
+}
+
 #btnContainer{
     margin-top: 35px;
 }
@@ -159,4 +163,47 @@ header{
     font-size: 40px;
     color: white;
     padding: 20px;
+}
+
+.readContainerOut{
+    width: 950px;
+    height: 350px;
+    background-color: #127BF3;
+    position: fixed;
+    margin: auto;
+    margin-top: 20vh;
+    margin-left: 40vh;
+    padding: 25px;
+    font-weight: bold;
+}
+
+.readContainerInside{
+    width: 900px;
+    height: 300px;
+    border: solid 3px white;
+    margin: auto;
+}
+
+.readContainerInside button{
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: #127BF3;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.readContainerInside h1, h2{
+    color: white;
+    margin-left: 30px;
+}
+
+.readContainerInside h1{
+    font-size: 80px;
+}
+
+.readContainerInside h2{
+    font-size: 40px;
 }

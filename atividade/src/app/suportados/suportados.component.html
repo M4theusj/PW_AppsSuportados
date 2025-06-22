@@ -1,44 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-  <nav class="glass-effect">
-    <button (click)="home()">home</button>
-    <button (click)="sair()">sair</button>
-  </nav>
-  <header>
-    <div id="titulo">
-      <p>apps</p>
-    </div>
-    <div id="mainContainer">
-      <div id="leftContainer">
-         <div class="content">
+<nav class="glass-effect">
+  <button (click)="home()">home</button>
+  <button (click)="sair()">sair</button>
+</nav>
+
+<header>
+  <div id="titulo">
+    <p>apps</p>
+  </div>
+
+  <div id="mainContainer">
+    <div id="leftContainer">
+
+      <form [formGroup]="formularioCreate">
+        <div class="content">
           <p>Nome</p>
-          <input type="text">
+          <input type="text" formControlName="nome" placeholder="Digite o nome do app">
+
           <p>Descrição</p>
-          <input type="text">
-          <button class="btn" style="margin-left: 30px;" id="createBtn">create</button>
-         </div> 
-         <div class="content">
+          <input type="text" formControlName="descricao" placeholder="Digite pra que o app é usado">
+
+          <button class="btn" id="createBtn" type="button" (click)="create()">create</button>
+        </div>
+      </form>
+
+      <form [formGroup]="formularioActions">
+        <div class="content">
           <p>Id</p>
-          <input type="number">
+          <input type="number" formControlName="id" placeholder="Digite o id ex: 1, 2">
+
           <div id="btnContainer">
-            <button class="btn" id="readBtn">read</button>
-            <button class="btn" id="deleteBtn">delete</button>
+            <button class="btn" id="readBtn" type="button" (click)="read()">read</button>
+            <button class="btn" id="deleteBtn" type="button" (click)="delete()">delete</button>
           </div>
-         </div>
-      </div>
-      <div id="rightContainer">
-          <div class="appElement">
-            <p>Uber - 1</p>
-            <p>Transporte, Corrida</p>
-          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div id="rightContainer">
+      <div *ngFor="let app of apps" class="appElement">
+        <p>{{ app.nome }} - {{ app.id }}</p>
+        <p>{{ app.descricao }}</p>
       </div>
     </div>
-  </header> 
-</body>
-</html>
+  </div>
+</header>
+
+<div *ngIf="popupVisible" class="readContainerOut">
+  <div class="readContainerInside">
+    <button (click)="closePopup()">sair</button>
+    <h1>{{ popupData?.nome }} - {{ popupData?.id }}</h1>
+    <h2>{{ popupData?.descricao }}</h2>
+  </div>
+</div>
